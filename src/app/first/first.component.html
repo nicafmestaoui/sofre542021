@@ -6,3 +6,12 @@
 <p [style.backgroundColor]="bgc" [hidden]="isHidden">cc</p>
 
 <button (click)="showHide()" class="btn btn-danger">show/hide</button>
+
+<input
+  (change)="showInput(monInput.value)"
+  #monInput
+  type="text"
+  class="form-control">
+
+le contenu de l'input : {{inputContent}}
+
