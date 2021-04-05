@@ -1,6 +1,4 @@
-<div [style.backgroundColor]="bgc">
-  color works!
-</div>
+<div [style.backgroundColor]="bgc">color works!</div>
 
 <input
   type="text"
@@ -8,8 +6,6 @@
   #inputColor
   class="form-control"
 />
+<input type="color" [(ngModel)]="bgc" class="form-control" />
 
-<button
- (click)="changeColor(defaultColor)"
- class="btn btn-dark"
->Reset</button>
+<button (click)="changeColor(defaultColor)" class="btn btn-dark">Reset</button>
