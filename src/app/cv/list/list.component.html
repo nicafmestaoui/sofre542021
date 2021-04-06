@@ -1,8 +1,9 @@
 <ol class="list-group">
   <li class="list-group-item">
-    <app-item [cv]="cvs[0]"></app-item>
+    <!-- appItem(cv) {} -->
+    <app-item (clickOnCvItem)="forwardCv($event)" [cv]="cvs[0]"></app-item>
   </li>
   <li class="list-group-item">
-    <app-item [cv]="cvs[1]"></app-item>
+    <app-item (clickOnCvItem)="forwardCv($event)" [cv]="cvs[1]"></app-item>
   </li>
 </ol>
