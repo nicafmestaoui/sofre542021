@@ -19,6 +19,7 @@ import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { WordComponent } from './directives/word/word.component';
 import { NgclassComponent } from './directives/ngclass/ngclass.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     NgstyleComponent,
     WordComponent,
     NgclassComponent,
-    HighlightDirective
+    HighlightDirective,
+    RainbowDirective
   ],
   imports: [
     BrowserModule,
