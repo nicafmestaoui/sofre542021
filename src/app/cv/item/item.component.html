@@ -1,11 +1,11 @@
 <div (click)="selectItem()">
   <img
-  width="50px"
-  heigth="50px"
-  class="rounded-circle"
-  src="assets/images/{{ cv?.path }}"
-  alt="{{ cv?.name }}"
-/>
+    width="50px"
+    heigth="50px"
+    class="rounded-circle"
+    src="assets/images/{{ cv?.path | defaultImage }}"
+    alt="{{ cv?.name }}"
+  />
 
-{{ cv?.firstname }} {{ cv?.name }}
+  {{ cv?.firstname }} {{ cv?.name }} {{ cv.age | btcToUsd: !!(cv.age % 2) }}
 </div>

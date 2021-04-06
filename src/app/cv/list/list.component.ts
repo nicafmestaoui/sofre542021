@@ -11,15 +11,7 @@ export class ListComponent implements OnInit {
   @Output() forwardCvItem = new EventEmitter();
   constructor() {
     this.cvs = [
-      new Cv(
-        1,
-        'sellaouti',
-        'aymen',
-        'rotating_card_profile2.png',
-        'teacher',
-        123456,
-        38
-      ),
+      new Cv(1, 'sellaouti', 'aymen', '           ', 'teacher', 123456, 38),
       new Cv(
         2,
         'Sahlli',
@@ -27,17 +19,9 @@ export class ListComponent implements OnInit {
         'rotating_card_profile.png',
         'Dev',
         123456,
-        22
+        23
       ),
-      new Cv(
-        3,
-        'Sahlli',
-        'amani',
-        'rotating_card_profile.png',
-        'Dev',
-        123456,
-        22
-      ),
+      new Cv(3, 'Sahlli', 'amani', '', 'Dev', 123456, 22),
     ];
   }
 
