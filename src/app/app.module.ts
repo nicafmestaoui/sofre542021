@@ -16,6 +16,7 @@ import { ItemComponent } from './cv/item/item.component';
 import { ListComponent } from './cv/list/list.component';
 import { DetailComponent } from './cv/detail/detail.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
