@@ -3,9 +3,9 @@
     width="50px"
     heigth="50px"
     class="rounded-circle"
-    src="assets/images/{{ cv?.path | defaultImage }}"
-    alt="{{ cv?.name }}"
+    src="assets/images/{{ cv.path | defaultImage }}"
+    alt="{{ cv.name }}"
   />
 
-  {{ cv?.firstname }} {{ cv?.name }} {{ cv.age | btcToUsd: !!(cv.age % 2) }}
+  {{ cv.firstname }} {{ cv.name }}
 </div>
