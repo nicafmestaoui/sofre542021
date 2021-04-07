@@ -29,9 +29,7 @@ export class TodoComponent implements OnInit {
     this.todo = new Todo();
   }
   delete(todo: Todo): void {
-    this.toaster.success(
-      `Le todo ${todo.name} a été supprimé avec succès`
-    );
+    this.toaster.success(`Le todo ${todo.name} a été supprimé avec succès`);
     this.todoService.deleteTodo(todo);
   }
 }

@@ -1,11 +1,15 @@
-<div (click)="selectItem()">
+<span (click)="selectItem()">
   <img
-    width="50px"
-    heigth="50px"
-    class="rounded-circle"
+    [ngStyle]="{
+      heigth: size + 'px',
+      width: size + 'px'
+    }"
+    [ngClass]="{
+      'rounded-circle': isRounded
+    }"
     src="assets/images/{{ cv.path | defaultImage }}"
     alt="{{ cv.name }}"
   />
 
   {{ cv.firstname }} {{ cv.name }}
-</div>
+</span>
