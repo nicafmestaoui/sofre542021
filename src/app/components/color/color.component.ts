@@ -23,6 +23,7 @@ export class ColorComponent implements OnInit, OnChanges {
     this.activatedRoute.params.subscribe(
       (params) => (this.bgc = params.couleur)
     );
+    this.activatedRoute.queryParams.subscribe((qp) => console.log(qp));
   }
 
   changeColor(newColor: string): void {
