@@ -29,6 +29,7 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
+import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { HeaderComponent } from './components/header/header.component';
     TodoComponent,
     EmbaucheComponent,
     HeaderComponent,
+    RouterSimulatorComponent,
   ],
   imports: [
     BrowserModule,
