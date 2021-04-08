@@ -41,6 +41,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { TestObservableComponent } from './test-observable/test-observable.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TestHttpComponent } from './test-http/test-http.component';
+import { HTTPINTERCEPTOR } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,9 @@ import { TestHttpComponent } from './test-http/test-http.component';
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HTTPINTERCEPTOR
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
