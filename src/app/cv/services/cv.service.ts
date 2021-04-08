@@ -48,4 +48,8 @@ export class CvService {
     }
     return false;
   }
+
+  addCv(cv: Cv): void {
+    this.cvs.push(cv);
+  }
 }
