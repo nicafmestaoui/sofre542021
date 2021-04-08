@@ -32,6 +32,7 @@
       </li>
       <li class="nav-item">
         <a
+          *ngIf="authService.isAuthenticated()"
           class="nav-link"
           routerLinkActive="active text-primary"
           [routerLink]="['/cv/add']"
@@ -64,10 +65,20 @@
       </li>
       <li class="nav-item">
         <a
+        *ngIf="!authService.isAuthenticated()"
           class="nav-link"
           routerLinkActive="active text-primary"
           [routerLink]="['/login']"
           >Login</a
+        >
+      </li>
+      <li
+      *ngIf="authService.isAuthenticated()"
+      class="nav-item">
+        <a
+          class="nav-link"
+          (click)="logout()"
+          >Logout</a
         >
       </li>
     </ul>

@@ -13,6 +13,7 @@ import { BackComponent } from './components/back/back.component';
 import { FrontComponent } from './components/front/front.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 /*word*/
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     component: BackComponent,
     children: [{ path: 'second', component: SecondComponent }],
   },
@@ -34,7 +36,7 @@ const routes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddPersonneComponent },
+      { path: 'add', component: AddPersonneComponent, canActivate: [AuthGuard] },
       { path: ':id', component: DetailPersonneComponent },
     ],
   },

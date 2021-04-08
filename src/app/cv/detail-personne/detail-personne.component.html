@@ -39,6 +39,7 @@
             </table>
             <div class="d-flex justify-content-center">
               <button
+                *ngIf="authService.isAuthenticated()"
                 class="btn btn-danger"
                 (click)="deleteCv()"
               >

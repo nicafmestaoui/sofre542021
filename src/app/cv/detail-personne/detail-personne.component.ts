@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
 import { Cv } from '../model/cv';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-detail-personne',
@@ -17,7 +18,8 @@ export class DetailPersonneComponent implements OnInit, OnDestroy {
     private cvService: CvService,
     private toaster: ToastrService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
