@@ -22,12 +22,14 @@ export class DetailPersonneComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.activatedRoute.params.subscribe((params) => {
-      const cv = this.cvService.getCvById(+params.id);
-      if (!cv) {
-        this.router.navigate(['cv']);
-      } else {
-        this.cv = cv;
-      }
+      this.cvService.getCvById(+params.id).subscribe(
+        (cv) => {
+          this.cv = cv;
+        },
+        (erreur) => {
+          this.router.navigate(['cv']);
+        }
+      );
     });
   }
 

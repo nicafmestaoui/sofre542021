@@ -1,12 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 import { Cv } from '../model/cv';
 
+const PERSONNE_API =
+  'https://immense-citadel-91115.herokuapp.com/api/personnes/';
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
   cvs: Cv[] = [];
-  constructor() {
+  clickItemSubject = new Subject<Cv>();
+  constructor(private http: HttpClient) {
     this.cvs = [
       new Cv(1, 'sellaouti', 'aymen', '           ', 'teacher', 123456, 38),
       new Cv(
@@ -22,16 +27,23 @@ export class CvService {
     ];
   }
 
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.cvs;
   }
 
-  getCvById(id: number): Cv | null {
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(PERSONNE_API);
+  }
+
+  getFakeCvById(id: number): Cv | null {
     const cv = this.cvs.find((cv) => cv.id === id);
     if (cv) {
       return cv;
     }
     return null;
+  }
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(PERSONNE_API + id);
   }
 
   deleteCv(cv: Cv | null): boolean {
@@ -51,5 +63,9 @@ export class CvService {
 
   addCv(cv: Cv): void {
     this.cvs.push(cv);
+  }
+
+  selectItem(cv: Cv): void {
+    this.clickItemSubject.next(cv);
   }
 }
