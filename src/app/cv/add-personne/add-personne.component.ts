@@ -21,9 +21,15 @@ export class AddPersonneComponent implements OnInit {
   }
 
   addCv(cv: Cv): void {
-    this.cvService.addCv(cv);
-    this.toaster.success(`Le cv de ${cv.firstname} ${cv.name} a été ajuoté avec succès`);
-    this.router.navigate(['cv']);
+    this.cvService.addCv(cv).subscribe(
+      (newCv) => {
+        this.toaster.success(`Le cv de ${newCv.firstname} ${newCv.name} a été ajuoté avec succès`);
+        this.router.navigate(['cv']);
+      },
+      (erreur) => {
+        console.log(erreur);
+        this.toaster.error(`Problème avec le serveur veuillez contacter l'admin`);
+      }
+    );
   }
-
 }

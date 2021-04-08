@@ -34,9 +34,24 @@ export class DetailPersonneComponent implements OnInit, OnDestroy {
   }
 
   deleteCv(): void {
-    this.toaster.success(`Cv a été supprimé avec succès`);
-    this.cvService.deleteCv(this.cv);
-    this.router.navigate(['cv']);
+    if (this.cv != null) {
+      if (this.cv.id) {
+        this.cvService.deleteCv(this.cv.id).subscribe(
+          (data) => {
+            this.toaster.success(`Cv supprimé avec succès`);
+            this.router.navigate(['cv']);
+          },
+          (erreur) => {
+            this.toaster.error(
+              `Problème de suppression veuillez contacter l'admin`
+            );
+            console.log(erreur);
+          }
+        );
+      }
+    } else {
+      console.log('null');
+    }
   }
 
   ngOnDestroy(): void {
