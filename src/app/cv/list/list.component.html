@@ -1,8 +1,13 @@
 <ol class="list-group">
-  <li class="list-group-item">
-    <app-item [cv]="cvs[0]"></app-item>
-  </li>
-  <li class="list-group-item">
-    <app-item [cv]="cvs[1]"></app-item>
+  <li
+    *ngFor="let actualCv of cvs; let isOdd = odd"
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-danger': isOdd,
+      'list-group-item-warning': !isOdd
+    }"
+  >
+    <!-- appItem(cv) {} -->
+    <app-item [cv]="actualCv"></app-item>
   </li>
 </ol>
